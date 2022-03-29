@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <extension version="4.1.0" type="file" method="upgrade">
-	<name>Card Layouts</name>
+    <name>Card Layouts</name>
     <author>Brian Teeman</author>
     <authorEmail>brian@teeman.net</authorEmail>
     <authorUrl>https://www.learnjoomla4.com</authorUrl>
@@ -8,8 +8,8 @@
     <license>GNU GPL v2 or later</license>
     <version>1.0.0</version>
     <creationDate>March 2022</creationDate>
-	<description>com_content/category overrides with configuration settings to create card layouts. Uses default bootstrap css only.</description>
-	<fileset>
+    <description>com_content/category overrides with configuration settings to create card layouts. Uses default bootstrap css only.</description>
+    <fileset>
         <files folder="cards" target="templates/cassiopeia/html/com_content/category">
             <file>card.xml</file>
             <file>card.php</file>
@@ -18,8 +18,8 @@
             <file>card_bgimage.php</file>
             <file>card_portfolio.php</file>
         </files>
-	</fileset>
+    </fileset>
     <updateservers>
-		<server type="extension" priority="1" name="Card Layouts">https://raw.githubusercontent.com/brianteeman/joomla-cards/main/update/manifest.xml</server>
-	</updateservers>
+        <server type="extension" priority="1" name="Card Layouts">https://raw.githubusercontent.com/brianteeman/joomla-cards/main/update/manifest.xml</server>
+    </updateservers>
 </extension>
