@@ -1,0 +1,406 @@
+<?xml version="1.0" encoding="utf-8"?>
+<metadata>
+	<layout title="Cards" option="Multiple layout options to display articles using cards.">
+		<help key = "Menu_Item:_Category_Blog" />
+		<message>
+			<![CDATA[COM_CONTENT_CATEGORY_VIEW_BLOG_DESC]]>
+		</message>
+	</layout>
+
+	<!-- Add fields to the request variables for the layout. -->
+	<fields name="request">
+		<fieldset name="request"
+			addfieldprefix="Joomla\Component\Categories\Administrator\Field"
+		>
+			<field
+				name="id"
+				type="modal_category"
+				label="JGLOBAL_CHOOSE_CATEGORY_LABEL"
+				extension="com_content"
+				required="true"
+				select="true"
+				new="true"
+				edit="true"
+				clear="true"
+			/>
+		</fieldset>
+	</fields>
+
+	<!-- Add fields to the parameters object for the layout. -->
+	<fields name="params">
+		<fieldset name="basic" label="Page Header" description="The category title and description may be used as a page header.">
+				<field
+					name="layout_type"
+					type="hidden"
+					default="blog"
+				/>
+
+				<field
+					name="show_category_title"
+					type="list"
+					label="JGLOBAL_SHOW_CATEGORY_TITLE"
+					useglobal="true"
+					class="form-select-color-state"
+					validate="options"
+					>
+					<option value="0">JHIDE</option>
+					<option value="1">JSHOW</option>
+				</field>
+
+				<field
+					name="show_description"
+					type="list"
+					label="JGLOBAL_SHOW_CATEGORY_DESCRIPTION_LABEL"
+					useglobal="true"
+					class="form-select-color-state"
+					validate="options"
+					>
+					<option value="0">JHIDE</option>
+					<option value="1">JSHOW</option>
+				</field>
+
+				<field
+					name="show_description_image"
+					type="list"
+					label="JGLOBAL_SHOW_CATEGORY_IMAGE_LABEL"
+					useglobal="true"
+					class="form-select-color-state"
+					validate="options"
+					>
+					<option value="0">JHIDE</option>
+					<option value="1">JSHOW</option>
+				</field>
+		</fieldset>
+
+		<fieldset name="advanced" label="Page Layout" description="Select the number of cards to display.">
+
+			<field
+				name="num_intro_articles"
+				type="number"
+				label="# Cards"
+				filter="integer"
+				parentclass="stack span-1-inline"
+			/>
+			<field
+				name="num_leading_articles"
+				type="hidden"
+				default="0"
+			/>
+			<field
+				name="num_columns"
+				type="number"
+				label="# Columns"
+				default="3"
+				filter="integer"
+				parentclass="stack span-1-inline"
+			/>
+
+			<field
+				name="orderby_sec"
+				type="list"
+				label="JGLOBAL_ARTICLE_ORDER_LABEL"
+				default="rdate"
+				validate="options"
+				parentclass="stack span-2"
+				>
+				<option value="front">COM_CONTENT_FEATURED_ORDER</option>
+				<option value="rdate">JGLOBAL_MOST_RECENT_FIRST</option>
+				<option value="date">JGLOBAL_OLDEST_FIRST</option>
+				<option value="alpha">JGLOBAL_TITLE_ALPHABETICAL</option>
+				<option value="ralpha">JGLOBAL_TITLE_REVERSE_ALPHABETICAL</option>
+				<option value="author">JGLOBAL_AUTHOR_ALPHABETICAL</option>
+				<option value="rauthor">JGLOBAL_AUTHOR_REVERSE_ALPHABETICAL</option>
+				<option value="hits" requires="hits">JGLOBAL_MOST_HITS</option>
+				<option value="rhits" requires="hits">JGLOBAL_LEAST_HITS</option>
+				<option value="random">JGLOBAL_RANDOM_ORDER</option>
+				<option value="order">JGLOBAL_ORDERING</option>
+				<option	value="rorder">JGLOBAL_REVERSE_ORDERING</option>
+				<option value="vote" requires="vote">JGLOBAL_VOTES_DESC</option>
+				<option value="rvote" requires="vote">JGLOBAL_VOTES_ASC</option>
+				<option value="rank" requires="vote">JGLOBAL_RATINGS_DESC</option>
+				<option value="rrank" requires="vote">JGLOBAL_RATINGS_ASC</option>
+			</field>
+
+			<field
+				name="order_date"
+				type="list"
+				label="JGLOBAL_ORDERING_DATE_LABEL"
+				default="published"
+				validate="options"
+				parentclass="stack span-2-inline"
+				>
+				<option value="created">JGLOBAL_CREATED</option>
+				<option value="modified">JGLOBAL_MODIFIED</option>
+				<option value="published">JPUBLISHED</option>
+				<option value="unpublished">JUNPUBLISHED</option>
+			</field>
+
+		</fieldset>
+
+		<fieldset name="article" label="Card Customise" description="Some options below may not be applied in every card layout.">
+
+			<field
+				name="card_type"
+				type="list"
+				label="Card Type"
+				parentclass="stack span-2"
+				default="vertical"
+				validate="options"
+				>
+				<option value="bgimage">Background Image</option>
+				<option value="horizontal">Horizontal</option>
+				<option value="portfolio">Portfolio</option>
+				<option value="vertical">Vertical</option>
+			</field>
+
+			<field
+				name="card_class_bg"
+				type="text"
+				label="Card Class"
+				description="Standard Bootstrap 5 classes such as bg-info"
+				default="shadow h-100"
+				showon="card_type:bgimage"
+				parentclass="stack span-2-inline"
+				validate="CssIdentifier"
+			/>
+
+			<field
+				name="card_class_h"
+				type="text"
+				label="Card Class"
+				description="Standard Bootstrap 5 classes such as bg-info"
+				default="shadow h-100"
+				showon="card_type:horizontal"
+				parentclass="stack span-2-inline"
+				validate="CssIdentifier"
+			/>
+
+			<field
+				name="card_class_p"
+				type="text"
+				label="Card Class"
+				description="Standard Bootstrap 5 classes such as bg-info"
+				default="border-0 h-100"
+				showon="card_type:portfolio"
+				parentclass="stack span-2-inline"
+				validate="CssIdentifier"
+			/>
+
+			<field
+				name="card_class_v"
+				type="text"
+				label="Card Class"
+				description="Standard Bootstrap 5 classes such as bg-info"
+				default="shadow h-100"
+				showon="card_type:vertical"
+				parentclass="stack span-2-inline"
+				validate="CssIdentifier"
+			/>
+
+
+			<field
+				name="show_title"
+				type="list"
+				label="JGLOBAL_SHOW_TITLE_LABEL"
+				default="1"
+				parentclass="stack span-1"
+				validate="options"
+				>
+				<option value="0">JHIDE</option>
+				<option value="1">JSHOW</option>
+			</field>
+
+			<field
+				name="link_titles"
+				type="list"
+				label="JGLOBAL_LINKED_TITLES_LABEL"
+				validate="options"
+				default="0"
+				showon="show_title:1"
+				parentclass="stack span-1-inline"
+				>
+				<option value="0">JNO</option>
+				<option value="1">JYES</option>
+			</field>
+
+			<field
+				name="title_class_bg"
+				type="text"
+				label="Title Class"
+				description="Standard Bootstrap 5 classes such as text-white."
+				default="mb-5 text-white"
+				showon="show_title:1[AND]card_type:bgimage"
+				parentclass="stack span-2-inline"
+			/>
+
+			<field
+				name="title_class_h"
+				type="text"
+				label="Title Class"
+				description="Standard Bootstrap 5 classes such as text-white."
+				default="mb-5"
+				showon="show_title:1[AND]card_type:horizontal"
+				parentclass="stack span-2-inline"
+			/>
+
+			<field
+				name="title_class_p"
+				type="text"
+				label="Title Class"
+				description="Standard Bootstrap 5 classes such as text-white."
+				default="bg-primary text-white text-center mx-4 mt-n4 py-4"
+				showon="show_title:1[AND]card_type:portfolio"
+				parentclass="stack span-2-inline"
+			/>
+
+			<field
+				name="title_class_v"
+				type="text"
+				label="Title Class"
+				description="Standard Bootstrap 5 classes such as text-white."
+				default="mb-5"
+				showon="show_title:1[AND]card_type:vertical"
+				parentclass="stack span-2-inline"
+			/>
+
+			<field
+				name="show_intro_image"
+				type="list"
+				label="Show Intro Image"
+				default="1"
+				parentclass="stack span-1"
+				validate="options"
+				>
+				<option value="0">JHIDE</option>
+				<option value="1">JSHOW</option>
+			</field>
+
+			<field
+				name="link_intro_image"
+				type="list"
+				label="JGLOBAL_LINKED_INTRO_IMAGE_LABEL"
+				validate="options"
+				parentclass="stack span-1-inline"
+				default="1"
+				showon="show_intro_image:1"
+				>
+				<option value="0">JNO</option>
+				<option value="1">JYES</option>
+			</field>
+
+			<field
+				name="image_class_bg"
+				type="text"
+				label="Image Class"
+				description="Standard Bootstrap 5 classes such as thumbnail, rounded-circle"
+				default=""
+				showon="show_intro_image:1[AND]card_type:bgimage"
+				parentclass="stack span-2-inline"
+			/>
+
+			<field
+				name="image_class_h"
+				type="text"
+				label="Image Class"
+				description="Standard Bootstrap 5 classes such as thumbnail, rounded-circle"
+				default="rounded-start h-100 img-contain pe-0"
+				showon="show_intro_image:1[AND]card_type:horizontal"
+				parentclass="stack span-2-inline"
+			/>
+
+			<field
+				name="image_class_p"
+				type="text"
+				label="Image Class"
+				description="Standard Bootstrap 5 classes such as thumbnail, rounded-circle"
+				default="card-img-top"
+				showon="show_intro_image:1[AND]card_type:portfolio"
+				parentclass="stack span-2-inline"
+			/>
+
+			<field
+				name="image_class_v"
+				type="text"
+				label="Image Class"
+				description="Standard Bootstrap 5 classes such as thumbnail, rounded-circle"
+				default="card-img-top"
+				showon="show_intro_image:1[AND]card_type:vertical"
+				parentclass="stack span-2-inline"
+			/>
+
+			<field
+				name="show_intro"
+				type="list"
+				label="JGLOBAL_SHOW_INTRO_LABEL"
+				default="0"
+				validate="options"
+				parentclass="stack span-1"
+				>
+				<option value="0">JHIDE</option>
+				<option value="1">JSHOW</option>
+			</field>
+
+			<field
+				name="link_text"
+				type="text"
+				label="Link Text"
+				default="Read More:"
+				showon="show_readmore:1"
+				parentclass="stack span-1"
+			/>
+
+			<field
+				name="show_link"
+				type="list"
+				label="Link to Content"
+				validate="options"
+				parentclass="stack span-1-inline"
+				default="1"
+				>
+				<option value="0">JHIDE</option>
+				<option value="1">JSHOW</option>
+			</field>
+
+			<field
+				name="link_class_bg"
+				type="text"
+				label="Link Class"
+				description="Standard Bootstrap 5 classes such as btn-info"
+				default="btn btn-secondary"
+				showon="show_link:1[AND]card_type:bgimage"
+				parentclass="stack span-2-inline"
+			/>
+
+			<field
+				name="link_class_h"
+				type="text"
+				label="Link Class"
+				description="Standard Bootstrap 5 classes such as btn-info"
+				default="btn btn-secondary"
+				showon="show_link:1[AND]card_type:horizontal"
+				parentclass="stack span-2-inline"
+			/>
+
+			<field
+				name="link_class_p"
+				type="text"
+				label="Link Class"
+				description="Standard Bootstrap 5 classes such as btn-info"
+				default="btn btn-secondary"
+				showon="show_link:1[AND]card_type:portfolio"
+				parentclass="stack span-2-inline"
+			/>
+
+			<field
+				name="link_class_v"
+				type="text"
+				label="Link Class"
+				description="Standard Bootstrap 5 classes such as btn-info"
+				default="btn btn-secondary"
+				showon="show_link:1[AND]card_type:vertical"
+				parentclass="stack span-2-inline"
+			/>
+
+		</fieldset>
+	</fields>
+</metadata>
