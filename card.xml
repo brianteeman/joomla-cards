@@ -6,7 +6,7 @@
     <authorUrl>https://www.learnjoomla4.com</authorUrl>
     <copyright>Copyright Brian Teeman</copyright>
     <license>GNU GPL v2 or later</license>
-    <version>1.0.1</version>
+    <version>1.0.2</version>
     <creationDate>March 2022</creationDate>
     <description>com_content/category overrides with configuration settings to create card layouts. Uses default bootstrap css only.</description>
     <fileset>
