@@ -55,7 +55,7 @@ $images->image_intro_alt || $images->image_intro_alt_empty ? $alt = "alt=\"$imag
 					<?php echo $this->item->introtext; ?>
 				<?php endif; ?>
 				<?php if ($params->get('show_link')) : ?>
-					<a class="<?php echo ($params->get('link_class_h')); ?>" href="<?php echo $link; ?>" aria-label="<?php echo $this->escape($linktext . ' ' . $item->title); ?>">
+					<a class="<?php echo ($params->get('link_class_h')); ?>" href="<?php echo $link; ?>" aria-label="<?php echo $this->escape($linktext . ' ' . $this->item->title); ?>">
 						<?php echo $linktext; ?>
 					</a>
 				<?php endif; ?>
