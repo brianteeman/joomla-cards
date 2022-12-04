@@ -1,5 +1,6 @@
 # joomla-cards
 Installable com_content/category overrides with configuration settings to create card layouts. Uses default bootstrap css only. Installation creates the override files in the cassiopeia template only. If you want to use them with a different template then copy the overrides to yur own template. **_Note:_** The template must support Bootstrap 5
+![CLEAN (5)](https://user-images.githubusercontent.com/1296369/205490460-322d58db-39f3-435a-9187-b0c02995d6a5.png)
 
 ## Configuration
 ### 1. Select the Card Menu Type
