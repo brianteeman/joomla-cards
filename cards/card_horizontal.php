@@ -17,7 +17,7 @@ $params   = $this->item->params;
 $link     = Route::_(RouteHelper::getArticleRoute($this->item->slug, $this->item->catid, $this->item->language));
 $linktext = $params->get('link_text');
 $images   = json_decode($this->item->images);
-$images->image_intro_alt || $images->image_intro_alt_empty ? $alt = "alt=\"$images->image_intro_alt\"" : '';
+(!empty($images->image_intro_alt)) || (!empty($images->image_intro_alt_empty)) ? $alt = "alt=\"$images->image_intro_alt\"" : $alt='';
 
 ?>
 <div class="card <?php echo ($params->get('card_class_h')); ?>">

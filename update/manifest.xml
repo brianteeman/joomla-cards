@@ -5,9 +5,9 @@
         <name>Card Layouts</name>
         <description>com_content/category overrides with configuration settings to create card layouts. Uses default bootstrap css only.</description>
         <client>site</client>
-        <version>1.0.2</version>
+        <version>1.0.3</version>
         <downloads>
-            <downloadurl type="full" format="zip">https://github.com/brianteeman/joomla-cards/releases/download/1.0.2/joomla-cards.zip</downloadurl>
+            <downloadurl type="full" format="zip">https://github.com/brianteeman/joomla-cards/releases/download/1.0.3/joomla-cards.zip</downloadurl>
         </downloads>
         <tags>
             <tag>stable</tag>
@@ -17,6 +17,6 @@
         </infourl>
         <maintainer>Brian Teeman</maintainer>
         <maintainerurl>https://www.learnjoomla4.com</maintainerurl>
-        <targetplatform name="joomla" version="4.1.0"/>
+        <targetplatform name="joomla" version="4.[0123]"/>
     </update>
 </updates>

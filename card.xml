@@ -6,8 +6,8 @@
     <authorUrl>https://www.learnjoomla4.com</authorUrl>
     <copyright>Copyright Brian Teeman</copyright>
     <license>GNU GPL v2 or later</license>
-    <version>1.0.2</version>
-    <creationDate>March 2022</creationDate>
+    <version>1.0.3</version>
+    <creationDate>Dec 2022</creationDate>
     <description>com_content/category overrides with configuration settings to create card layouts. Uses default bootstrap css only.</description>
     <fileset>
         <files folder="cards" target="templates/cassiopeia/html/com_content/category">
